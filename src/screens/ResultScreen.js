@@ -23,7 +23,6 @@ class ResultScreen extends React.Component {
       .database()
       .ref(`/States/${route.params.title}/Clubs/`)
       .on('value', (snapshot) => {
-        console.log(snapshot.val(), 'Aman');
         this.setState({
           stores: snapshot.val(),
         });
@@ -44,12 +43,13 @@ class ResultScreen extends React.Component {
           width: '90%',
           alignSelf: 'center',
           marginTop: 20,
-          height: 100,
+          height: 120,
           borderColor: '111111',
           borderRadius: 7,
           backgroundColor: 'rgba(0,0,0,0.7)',
           padding: 5,
-
+          flexDirection: 'column',
+          justifyContent: 'space-between',
           elevation: 3,
         }}>
         <View
