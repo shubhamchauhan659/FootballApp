@@ -1,5 +1,11 @@
 import React from 'react';
-import {View, TouchableOpacity, Text, Image} from 'react-native';
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  Image,
+  ImageBackground,
+} from 'react-native';
 import firebase from 'firebase';
 import {FlatList} from 'react-native-gesture-handler';
 
@@ -32,25 +38,17 @@ class ResultScreen extends React.Component {
           width: '90%',
           alignSelf: 'center',
           marginTop: 20,
-          height: 500,
+          height: 100,
           borderColor: '111111',
           borderRadius: 7,
-          backgroundColor: '#ffffff',
+          backgroundColor: 'rgba(0,0,0,0.7)',
           padding: 5,
-          shadowOffset: 10,
-          shadowOffset: {width: 0, height: 0.5},
-          shadowColor: '#AAAAAA',
-          shadowOpacity: 1,
-          shadowRadius: 5,
+
           elevation: 3,
         }}>
-        <Image
-          source={{uri: stores.image_url}}
-          style={{height: '80%', width: '100%'}}
-        />
         <View
           style={{
-            height: '10%',
+            height: 50,
             marginTop: 10,
           }}>
           <View
@@ -77,6 +75,7 @@ class ResultScreen extends React.Component {
                   height: 30,
                   width: 30,
                   marginRight: 5,
+                  tintColor: '#FFFFFF',
                 }}
               />
             </TouchableOpacity>
@@ -84,7 +83,7 @@ class ResultScreen extends React.Component {
             <Text
               style={{
                 fontSize: 23,
-                color: 'green',
+                color: '#ffffff',
                 fontWeight: '500',
               }}>
               {stores.like}
@@ -92,11 +91,11 @@ class ResultScreen extends React.Component {
           </View>
           <Text
             style={{
-              color: '#000000',
+              color: '#ffffff',
               fontSize: 20,
               fontWeight: '500',
             }}>
-            {stores.city}
+            {stores.league}
           </Text>
         </View>
 
@@ -109,14 +108,19 @@ class ResultScreen extends React.Component {
           }}>
           <Text
             style={{
-              color: 'grey',
+              color: '#AAAAAA',
               fontSize: 15,
               fontWeight: '500',
             }}>
             {stores.name}
           </Text>
-          <Text style={{color: 'grey', fontSize: 15, fontWeight: '500'}}>
-            {stores.league}
+          <Text
+            style={{
+              color: '#AAAAAA',
+              fontSize: 15,
+              fontWeight: '500',
+            }}>
+            {stores.city}
           </Text>
         </View>
       </View>
@@ -130,15 +134,20 @@ class ResultScreen extends React.Component {
     const arr = Object.keys(stores).map((key) => stores[key]);
 
     return (
-      <FlatList
-        data={arr}
-        renderItem={({item, index}) => this.clubsList(item, index)}
-        numColumns={1}
-        style={{
-          marginVertical: 5,
-        }}
-        initialNumToRender={10}
-      />
+      <ImageBackground
+        resizeMode="cover"
+        source={require('../assets/images/football.jpg')}
+        style={{width: '100%', height: '100%'}}>
+        <FlatList
+          data={arr}
+          renderItem={({item, index}) => this.clubsList(item, index)}
+          numColumns={1}
+          style={{
+            marginVertical: 5,
+          }}
+          initialNumToRender={10}
+        />
+      </ImageBackground>
     );
   }
 }
