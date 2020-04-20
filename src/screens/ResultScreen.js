@@ -30,8 +30,14 @@ class ResultScreen extends React.Component {
       });
   }
 
-  clubsList = (stores, index) => {
+  clubsList = (stores, i) => {
     const {route} = this.props;
+    let index;
+    if (i.toString().length === 1) {
+      index = `0${i + 1}`;
+    } else {
+      index = `${i + 1}`;
+    }
     return (
       <View
         style={{
@@ -61,7 +67,7 @@ class ResultScreen extends React.Component {
               onPress={() => {
                 firebase
                   .database()
-                  .ref(`/States/${route.params.title}/Clubs/club${index + 1}`)
+                  .ref(`/States/${route.params.title}/Clubs/club0` + index)
                   .update({
                     like: stores.like + 1,
                   });
