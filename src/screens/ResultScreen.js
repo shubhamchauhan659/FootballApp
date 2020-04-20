@@ -61,7 +61,7 @@ class ResultScreen extends React.Component {
               onPress={() => {
                 firebase
                   .database()
-                  .ref(`/States/${route.params.title}/Clubs/club${index}`)
+                  .ref(`/States/${route.params.title}/Clubs/club${index + 1}`)
                   .update({
                     like: stores.like + 1,
                   });
