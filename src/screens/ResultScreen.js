@@ -142,7 +142,7 @@ class ResultScreen extends React.Component {
     return (
       <ImageBackground
         resizeMode="cover"
-        source={require('../assets/images/football.jpg')}
+        source={require('../assets/images/football1.jpg')}
         style={{width: '100%', height: '100%'}}>
         <FlatList
           data={arr}
