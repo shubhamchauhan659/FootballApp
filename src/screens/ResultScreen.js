@@ -33,9 +33,9 @@ class ResultScreen extends React.Component {
     const {route} = this.props;
     let index;
     if (i.toString().length === 1) {
-      index = `0${i + 1}`;
+      index = `0${i}`;
     } else {
-      index = `${i + 1}`;
+      index = `${i}`;
     }
     return (
       <View
