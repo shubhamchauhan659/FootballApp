@@ -8,7 +8,7 @@ We are using Firebase database where we created our own database after taking da
 
 follow the steps to run these files on your pc :
 step 1-get React-Native installation completed on your PC.
-step 2-Clone FootballApp repository from gihub
+step 2-unzip the file
 step 3-install yarn(after this you are ready to run)
 step 4-react-native run-android
 
